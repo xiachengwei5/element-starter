@@ -15,20 +15,20 @@
             <el-input v-model="select_word" placeholder="筛选关键词" class="handle-input mr10"></el-input>
             <el-button type="primary" icon="search" @click="search">搜索</el-button>
         </div>
-        <el-table :data="data" border style="width: 100%" ref="multipleTable" @selection-change="handleSelectionChange">
+        <el-table :data="tableDate" border style="width: 100%" ref="multipleTable" @selection-change="handleSelectionChange">
             <el-table-column type="selection" width="55"></el-table-column>
-            <el-table-column prop="date" label="日期" sortable width="150">
-            </el-table-column>
             <el-table-column prop="name" label="姓名" width="120">
+            </el-table-column>
+            <el-table-column prop="date" label="日期" sortable width="150">
             </el-table-column>
             <el-table-column prop="address" label="地址" :formatter="formatter">
             </el-table-column>
             <el-table-column label="操作" width="180">
                 <template scope="scope">
                     <el-button size="small"
-                            @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+                               @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
                     <el-button size="small" type="danger"
-                            @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+                               @click="handleDelete(scope.$index, scope.row)">删除</el-button>
                 </template>
             </el-table-column>
         </el-table>
@@ -43,10 +43,13 @@
 </template>
 
 <script>
+    //先导入文件再使用
+    import tableDate from '../../../static/vuetable.json';
+
     export default {
         data() {
             return {
-                url: './static/vuetable.json',
+                tableDate: tableDate,
                 tableData: [],
                 cur_page: 1,
                 multipleSelection: [],
@@ -71,7 +74,7 @@
                         }
                     }
                     if(!is_del){
-                        if(d.address.indexOf(self.select_cate) > -1 && 
+                        if(d.address.indexOf(self.select_cate) > -1 &&
                             (d.name.indexOf(self.select_word) > -1 ||
                             d.address.indexOf(self.select_word) > -1)
                         ){
@@ -129,14 +132,14 @@
 </script>
 
 <style scoped>
-.handle-box{
-    margin-bottom: 20px;
-}
-.handle-select{
-    width: 120px;
-}
-.handle-input{
-    width: 300px;
-    display: inline-block;
-}
+    .handle-box{
+        margin-bottom: 20px;
+    }
+    .handle-select{
+        width: 120px;
+    }
+    .handle-input{
+        width: 300px;
+        display: inline-block;
+    }
 </style>

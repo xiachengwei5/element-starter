@@ -4,7 +4,7 @@
         <div class="user-info">
             <el-dropdown trigger="click" @command="handleCommand">
                 <span class="el-dropdown-link">
-                    <img class="user-logo" src="../../static/img/img.jpg">
+                    <img class="user-logo" src="../../../static/img/img.jpg">
                     {{username}}
                 </span>
                 <el-dropdown-menu slot="dropdown">
@@ -18,19 +18,19 @@
     export default {
         data() {
             return {
-                name: 'linxin'
+                name: 'xiachengwei'
             }
         },
         computed:{
             username(){
-                let username = localStorage.getItem('ms_username');
+                let username = localStorage.getItem('ms_username');         //从本地缓存中选择用户名，如果没有则用默认的用户名
                 return username ? username : this.name;
             }
         },
         methods:{
             handleCommand(command) {
                 if(command == 'loginout'){
-                    localStorage.removeItem('ms_username')
+                    localStorage.removeItem('ms_username')                  //退出时先从本地缓存中清除用户名，然后重定向到登录页面
                     this.$router.push('/login');
                 }
             }
