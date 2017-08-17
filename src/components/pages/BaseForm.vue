@@ -31,7 +31,7 @@
                     <el-switch on-text="" off-text="" v-model="form.delivery"></el-switch>
                 </el-form-item>
                 <el-form-item label="爱好">
-                    <el-checkbox-group v-model="form.hobby" max="2">
+                    <el-checkbox-group v-model="form.hobby" :max=2>
                         <el-checkbox label="running" name="hobby">跑步</el-checkbox>
                         <el-checkbox label="swiming" name="hobby">游泳</el-checkbox>
                         <el-checkbox label="basketball" name="hobby">篮球</el-checkbox>

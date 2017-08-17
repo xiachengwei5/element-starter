@@ -27,6 +27,15 @@ export default new Router({
             }, {
                 path: '/baseform',
                 component: resolve => require(['../components/pages/BaseForm.vue'], resolve)
+            }, {
+                path: '/vueeditor',
+                component: resolve => require(['../components/pages/VueEditor.vue'],resolve)
+            }, {
+                path: '/markdown',
+                component: resolve => require(['../components/pages/Markdown.vue'], resolve)
+            }, {
+                path: '/upload',
+                component: resolve => require(['../components/pages/upload.vue'], resolve)
             }
         ]
     },{
