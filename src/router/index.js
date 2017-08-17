@@ -14,10 +14,21 @@ export default new Router({
     },{
         path: '/readme',
         component: resolve => require(['../components/common/Home.vue'], resolve),
-        children: [{
-            path: '/',
-            component: resolve => require(['../components/pages/BaseTable.vue'], resolve)
-        }]
+        children: [
+            {
+                path: '/',
+                component: resolve => require(['../components/pages/Readme.vue'], resolve)
+            }, {
+                path: '/basetable',
+                component: resolve => require(['../components/pages/BaseTable.vue'], resolve)
+            }, {
+                path: '/vuetable',
+                component: resolve => require(['../components/pages/VueTable.vue'], resolve)
+            }, {
+                path: '/baseform',
+                component: resolve => require(['../components/pages/BaseForm.vue'], resolve)
+            }
+        ]
     },{
         path: '/login',
         component: resolve => require(['../components/pages/login.vue'], resolve)

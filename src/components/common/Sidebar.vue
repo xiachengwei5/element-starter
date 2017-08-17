@@ -6,7 +6,7 @@
                     <el-submenu :index="item.index">
                         <template slot="title"><i :class="item.icon"></i>{{ item.title }}</template>
                         <el-menu-item v-for="(subItem,i) in item.subs" :key="i" :index="subItem.index">
-                            {{ subItem.title }}
+                            <i :class="subItem.icon"></i>{{ subItem.title }}
                         </el-menu-item>
                     </el-submenu>
                 </template>
@@ -36,10 +36,12 @@
                         title: '表格',
                         subs: [
                             {
+                                icon: 'el-icon-menu',
                                 index: 'basetable',
                                 title: '基础表格'
                             },
                             {
+                                icon: 'el-icon-menu',
                                 index: 'vuetable',
                                 title: 'Vue表格组件'
                             }
@@ -51,18 +53,22 @@
                         title: '表单',
                         subs: [
                             {
+                                icon: 'el-icon-date',
                                 index: 'baseform',
                                 title: '基本表单'
                             },
                             {
+                                icon: 'el-icon-date',
                                 index: 'vueeditor',
                                 title: '编辑器'
                             },
                             {
+                                icon: 'el-icon-date',
                                 index: 'markdown',
                                 title: 'markdown'
                             },
                             {
+                                icon: 'el-icon-date',
                                 index: 'upload',
                                 title: '文件上传'
                             }
